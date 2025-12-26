@@ -12,32 +12,29 @@ function App() {
     tl.to(".vi-mask-group", {
       rotate: 10,
       duration: 2,
-      ease: "power4.inOut",
+      ease: "Power4.easeInOut",
       transformOrigin: "50% 50%",
-    })
-      .to(".vi-mask-group", {
+    }).to(".vi-mask-group", {
         scale: 10,
         duration: 2,
         delay: -1.8,
-        ease: "expo.inOut",
+        ease: "Expo.easeInOut",
         transformOrigin: "50% 50%",
         opacity: 0,
-        onUpdate: function () {
-          if (this.progress() >= 0.9 && !showContent) {
-            const svg = document.querySelector("svg");
-            if (svg) svg.remove();
-
-            setShowContent(true);
-            this.kill();
-          }
+         onUpdate: function () {
+        if (this.progress() >= 0.9) {
+          document.querySelector(".svg").remove();
+          setShowContent(true);
+          this.kill();
+        }
         },
       });
   }, []);
 
   return (
     <>
-      <div className="svg fix top-0 left z-[100] w-full h-screen overflow-hidden bg-[#000]">
-        <svg viewBox='0 0 800 600' preserveAspectRatio='xMinYMid slice'>
+      <div className="svg  w-full h-screen bg-[#000]">
+        <svg viewBox='0 0 800 600' preserveAspectRatio='xMinYMid slice'>  
           <defs>
             <mask id='viMask'>
               <rect width="100%" height="100%" fill='black' />
@@ -64,7 +61,18 @@ function App() {
           />
         </svg>
       </div>
-      {showContent && <div className='main w-full h-screen bg-[#000]'></div>}
+      {showContent && (
+        <div className='main w-full '>
+        <div className='landing w-full h-screen bg-black'>
+          <div className='navbar absolute top-0 left-0 z-[10] w-full py-10 px-10 bg-red-500'></div>
+          <div className='imagesdiv relative w-full h-screen '>
+            <img className='absolute top-0 left-0 w-full h-full object-cover' src="./sky.png" alt="" />
+            <img className='absolute top-0 left-0 w-full h-full object-cover' src="./bg.png" alt="" />
+             <img
+                className="absolute character -bottom-[150%] left-1/2 -translate-x-1/2  scale-[3] rotate-[-20deg]" src="./girlbg.png"alt=""/>
+          </div>
+        </div>
+        </div>) }
     </>
   );
 }
