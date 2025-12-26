@@ -68,6 +68,11 @@ function App() {
           <div className='imagesdiv relative w-full h-screen '>
             <img className='absolute top-0 left-0 w-full h-full object-cover' src="./sky.png" alt="" />
             <img className='absolute top-0 left-0 w-full h-full object-cover' src="./bg.png" alt="" />
+              <div className="text text-white flex flex-col gap-3 absolute top-20 left-1/2 -translate-x-1/2 scale-[1.4] rotate-[-10deg]">
+                <h1 className="text-[12rem] leading-none -ml-40">grand</h1>
+                <h1 className="text-[12rem] leading-none ml-20">theft</h1>
+                <h1 className="text-[12rem] leading-none -ml-40">auto</h1>
+              </div>
              <img
                 className="absolute character -bottom-[150%] left-1/2 -translate-x-1/2  scale-[3] rotate-[-20deg]" src="./girlbg.png"alt=""/>
           </div>
